@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpckPlugin = require('html-webpack-plugin')
+const UglifyJSPlug = require('uglifyjs-webpack-plugin') // 压缩JS
 
 module.exports = {
     entry:path.join(__dirname,'./src/index.js'), //入口，表示要使用webpack打包哪个文件
@@ -11,7 +12,8 @@ module.exports = {
     plugins: [
         new HtmlWebpckPlugin({
             template:'./public/index.html'
-        })
+        }),
+        new UglifyJSPlug()
     ],
     devServer:{
         contentBase: './dist', //根目录
